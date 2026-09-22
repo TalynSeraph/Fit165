@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="120" fill="#18212b"/>
+  <rect width="500" height="500" x="6" y="6" rx="114" fill="none" stroke="#6b603f" stroke-width="4"/>
+  <g stroke="#18212b" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Left Ear -->
+    <path d="M165 240 C140 130 115 50 160 30 C205 10 215 110 205 220 Z" fill="#e8e1d2"/>
+    <path d="M165 200 C152 135 140 85 162 65 C185 45 190 115 188 190 Z" fill="#25282a"/>
+    <!-- Right Ear -->
+    <path d="M347 240 C372 130 397 50 352 30 C307 10 297 110 307 220 Z" fill="#e8e1d2"/>
+    <path d="M347 200 C360 135 372 85 350 65 C327 45 322 115 324 190 Z" fill="#25282a"/>
+    <!-- Cranium / Skull -->
+    <path d="M140 290 C120 220 180 180 256 180 C332 180 392 220 372 290 C360 335 340 345 340 370 C340 395 320 405 310 405 L202 405 C192 405 172 395 172 370 C172 345 152 335 140 290 Z" fill="#e8e1d2"/>
+    <!-- Eye Sockets -->
+    <ellipse cx="205" cy="295" rx="34" ry="40" fill="#18212b"/>
+    <ellipse cx="307" cy="295" rx="34" ry="40" fill="#18212b"/>
+    <!-- Eye Highlights -->
+    <circle cx="218" cy="282" r="9" fill="#e8e1d2" stroke="none"/>
+    <circle cx="320" cy="282" r="9" fill="#e8e1d2" stroke="none"/>
+    <!-- Bunny Heart Cavity Nose -->
+    <path d="M256 342 C251 334 238 334 243 347 C247 357 256 365 256 365 C256 365 265 357 269 347 C274 334 261 334 256 342 Z" fill="#18212b"/>
+    <!-- Teeth -->
+    <rect x="234" y="405" width="20" height="24" rx="4" fill="#e8e1d2"/>
+    <rect x="258" y="405" width="20" height="24" rx="4" fill="#e8e1d2"/>
+    <!-- Forehead Cross Stitch -->
+    <path d="M256 205 L256 235 M244 215 L268 225 M245 230 L267 220" stroke="#8f7438" stroke-width="6" fill="none"/>
+  </g>
+</svg>
