@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171819"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><title>Fit 16.5</title><link rel="manifest" href="manifest.json"><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171819"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><title>Fit 16.5</title><link rel="manifest" href="manifest.json"><link rel="icon" type="image/svg+xml" href="icons/icon.svg"><link rel="apple-touch-icon" href="icons/icon.svg"><style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f3f4f6;color:#17202a;padding-bottom:env(safe-area-inset-bottom)}header{background:#18212b;color:#fff;padding:18px 16px;position:sticky;top:0;z-index:5}h1{margin:0;font-size:25px}header p{margin:3px 0;color:#cbd5df}nav{display:flex;gap:5px;padding:7px;background:#fff;position:sticky;top:75px;z-index:4;border-bottom:1px solid #ddd}nav button{flex:1;border:0;border-radius:9px;padding:10px 4px;font-weight:700;background:#eef1f3;color:#17202a}nav button.active{background:#18212b;color:#fff}main{max-width:720px;margin:auto;padding:12px}.card{background:#fff;border-radius:14px;padding:16px;margin:11px 0;box-shadow:0 2px 10px #0001}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#eef1f3;padding:11px;border-radius:10px}.stat b{display:block;font-size:21px;margin-top:2px}.progress{height:12px;background:#ddd;border-radius:10px;overflow:hidden}.bar{height:100%;background:#3d7d55;width:0;transition:.3s}button.primary{background:#18212b;color:#fff;border:0;border-radius:9px;padding:11px 15px;font-weight:700}button.secondary{background:#e8ecef;border:0;border-radius:9px;padding:10px;font-weight:700}button.install{display:none;background:#fff;color:#18212b;border:0;border-radius:9px;padding:9px 12px;font-weight:800;margin-top:10px}button.danger{background:#f4d9d9;border:0;border-radius:9px;padding:10px;font-weight:700}input{width:100%;padding:10px;border:1px solid #ccd2d7;border-radius:8px;font-size:16px;margin:5px 0 10px}label{font-size:13px;font-weight:700}.exercise{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #eee}.exercise input{width:22px;margin:0}.exercise span{flex:1}.hidden{display:none}.muted{color:#68737d;font-size:14px}.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#eef1f3;font-size:13px;font-weight:700;margin:2px}.done{background:#dcefe2}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:120px}table{width:100%;border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid #eee;text-align:left}.toast{position:fixed;left:15px;right:15px;bottom:18px;background:#18212b;color:white;padding:13px;border-radius:10px;display:none;z-index:20;text-align:center}
 
-/* Nordic-fantasy theme — inspired by dark medieval game UI, without game assets */
+/* Nordic-fantasy theme */
 :root{--ink:#e8e1d2;--muted:#aaa38f;--iron:#25282a;--iron2:#303437;--gold:#c8a85b;--gold2:#8f7438;--red:#7d3d34}
 body{font-family:Georgia,"Times New Roman",serif;background:#111315;color:var(--ink);background-image:radial-gradient(circle at 50% -10%,#394047 0,#191c1f 36%,#0e1011 78%);padding-bottom:env(safe-area-inset-bottom)}
 header{background:linear-gradient(#202426,#121516);color:var(--ink);border-bottom:1px solid #6b603f;padding:18px 16px}
-header h1{letter-spacing:1.5px;text-shadow:1px 2px 0 #000}
+header h1{letter-spacing:1.5px;text-shadow:1px 2px 0 #000;display:flex;align-items:center;gap:10px}
 header p{color:#b7ad93}
 nav{background:#17191a;border-bottom:1px solid #51482f;box-shadow:0 3px 12px #0008}
 nav button{background:#292d2f;color:#c8c1ad;border:1px solid #4b4b42;border-radius:4px;font-family:Georgia,"Times New Roman",serif}
@@ -28,39 +28,335 @@ label{color:#c8c1ad}
 .muted{color:#aaa38f}
 .pill{background:#353735;color:#d8d0bd;border:1px solid #55534a;border-radius:3px}
 .done{background:#334234;color:#c4d4bb;border-color:#63765c}
+.fasting{background:#23303d;color:#bed5e8;border-color:#4a6885}
 td,th{border-bottom:1px solid #3b3b35}
 .toast{background:#252729;border:1px solid #8d7640;color:#f0dfb0;border-radius:3px}
 h2,h3{color:#ddcfaa;text-shadow:1px 1px #000}
 ::selection{background:#8b743e;color:#fff}
+.icon-badge{width:28px;height:28px;vertical-align:middle;display:inline-block}
 </style></head><body>
-<header><h1>Fit 16.5</h1><p>Strong • Athletic • 16 st 7 lb</p><button id="installBtn" class="install">Install Fit 16.5</button></header>
+<header>
+  <h1><img src="icons/icon.svg" class="icon-badge" alt="Bunny Skull"> Fit 16.5</h1>
+  <p>Strong • Athletic • 16 st 7 lb</p>
+  <button id="installBtn" class="install">Install Fit 16.5</button>
+</header>
 <nav><button id="bhome" onclick="show('home')">Home</button><button id="bwork" onclick="show('work')">Workout</button><button id="bprog" onclick="show('prog')">Progress</button><button id="bplan" onclick="show('plan')">Plan</button></nav>
 <main>
-<section id="home"><div class="card"><h2>Dashboard</h2><div class="grid"><div class="stat">Current weight<b id="weight">19 st 8 lb</b></div><div class="stat">Target<b>16 st</b></div><div class="stat">Lost<b id="lost">0 lb</b></div><div class="stat">This week<b id="sessions">0 / 4</b></div></div><h3>Progress to 16 st</h3><div class="progress"><div id="bar" class="bar"></div></div><p id="progressText" class="muted"></p></div><div class="card"><h2>Today</h2><div id="today"></div></div><div class="card"><h2>Weekly rhythm</h2><p>Monday — Strength A</p><p>Wednesday — Walk/Run</p><p>Thursday — Strength B</p><p>Sunday — Walk/Run</p><p class="muted">Tuesday, Friday and Saturday are recovery/chill days.</p></div></section>
-<section id="work" class="hidden"><div class="card"><h2>Log today's session</h2><div class="row"><button class="secondary" onclick="selectWorkout('A')">Strength A</button><button class="secondary" onclick="selectWorkout('B')">Strength B</button><button class="secondary" onclick="selectWorkout('R')">Walk / Run</button></div></div><div id="strengthCard" class="card"><h2 id="title">Strength A</h2><p class="muted">Tick the exercises as you complete them.</p><div id="ex"></div><button class="primary" onclick="completeStrength()">Complete strength session</button></div><div id="runCard" class="card hidden"><h2>Walk / Run</h2><p class="muted">Starting session: 5 min brisk walk, then 1 min gentle jog + 2 min walk × 6.</p><label>Walking minutes</label><input id="wm" type="number" min="0"><label>Running minutes</label><input id="rm" type="number" min="0"><label>Distance km (optional)</label><input id="km" type="number" min="0" step="0.01"><button class="secondary" onclick="saveRun()">Save walk/run</button></div></section>
-<section id="prog" class="hidden"><div class="card"><h2>Log measurement</h2><label>Stone</label><input id="st" type="number" step="0.1"><label>Pounds</label><input id="lb" type="number" min="0" max="13"><label>Waist inches</label><input id="waist" type="number" step="0.1"><button class="primary" onclick="saveMeasure()">Save measurement</button></div><div class="card"><h2>History</h2><div id="hist"></div></div><div class="card"><h2>Your data</h2><p class="muted">Progress is saved on this device. Export a backup before changing phones or clearing browser data.</p><div class="row"><button class="secondary" onclick="exportData()">Export backup</button><button class="secondary" onclick="document.getElementById('importFile').click()">Import backup</button><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)"></div><br><button class="danger" onclick="resetData()">Reset all Fit 16 data</button></div></section>
-<section id="plan" class="hidden"><div class="card"><h2>Strength A — Monday</h2><p>Band squat — 3 × 10–15</p><p>Band Romanian deadlift — 3 × 10–15</p><p>Band bent-over row — 3 × 10–15</p><p>Band shoulder press — 3 × 8–12</p><p>Band curl — 2 × 10–15</p><p>Dead bug — 2 × 8–10 each side</p></div><div class="card"><h2>Strength B — Thursday</h2><p>Reverse lunge — 3 × 8–12 each leg</p><p>Band sumo squat — 3 × 10–15</p><p>Band bent-over row — 3 × 10–15</p><p>Band floor press / push-ups — 3 × 8–15</p><p>Band lateral raise — 2 × 10–15</p><p>Plank — 2 × 20–40 sec</p></div><div class="card"><h2>Nutrition</h2><p>16:8 eating window, approximately 11am–7pm. Prioritise protein, fruit/veg and sensible portions. Zero-sugar Monster can fit.</p></div></section>
-</main><div id="toast" class="toast"></div>
+<section id="home">
+  <div class="card">
+    <h2>Dashboard</h2>
+    <div class="grid">
+      <div class="stat">Current weight<b id="weight">19 st 8 lb</b></div>
+      <div class="stat">Target<b>16 st 7 lb</b></div>
+      <div class="stat">Lost<b id="lost">0 lb</b></div>
+      <div class="stat">This week<b id="sessions">0 / 4</b></div>
+    </div>
+    <h3>Progress to 16 st 7 lb</h3>
+    <div class="progress"><div id="bar" class="bar"></div></div>
+    <p id="progressText" class="muted"></p>
+  </div>
+  <div class="card">
+    <h2>Fasting Schedule (12:00 PM – 7:00 PM)</h2>
+    <div id="fastingStatus"></div>
+  </div>
+  <div class="card">
+    <h2>Today</h2>
+    <div id="today"></div>
+  </div>
+  <div class="card">
+    <h2>Weekly rhythm</h2>
+    <p>Monday — Strength A</p>
+    <p>Wednesday — Walk/Run</p>
+    <p>Thursday — Strength B</p>
+    <p>Sunday — Walk/Run</p>
+    <p class="muted">Tuesday, Friday and Saturday are recovery/chill days.</p>
+  </div>
+</section>
+
+<section id="work" class="hidden">
+  <div class="card">
+    <h2>Log today's session</h2>
+    <div class="row">
+      <button class="secondary" onclick="selectWorkout('A')">Strength A</button>
+      <button class="secondary" onclick="selectWorkout('B')">Strength B</button>
+      <button class="secondary" onclick="selectWorkout('R')">Walk / Run</button>
+    </div>
+  </div>
+  <div id="strengthCard" class="card">
+    <h2 id="title">Strength A</h2>
+    <p class="muted">Tick the exercises as you complete them.</p>
+    <div id="ex"></div>
+    <button class="primary" onclick="completeStrength()">Complete strength session</button>
+  </div>
+  <div id="runCard" class="card hidden">
+    <h2>Walk / Run</h2>
+    <p class="muted">Starting session: 5 min brisk walk, then 1 min gentle jog + 2 min walk × 6.</p>
+    <label>Walking minutes</label>
+    <input id="wm" type="number" min="0">
+    <label>Running minutes</label>
+    <input id="rm" type="number" min="0">
+    <label>Distance km (optional)</label>
+    <input id="km" type="number" min="0" step="0.01">
+    <button class="secondary" onclick="saveRun()">Save walk/run</button>
+  </div>
+</section>
+
+<section id="prog" class="hidden">
+  <div class="card">
+    <h2>Log measurement</h2>
+    <label>Stone</label>
+    <input id="st" type="number" step="0.1">
+    <label>Pounds</label>
+    <input id="lb" type="number" min="0" max="13">
+    <label>Waist inches</label>
+    <input id="waist" type="number" step="0.1">
+    <button class="primary" onclick="saveMeasure()">Save measurement</button>
+  </div>
+  <div class="card">
+    <h2>History</h2>
+    <div id="hist"></div>
+  </div>
+  <div class="card">
+    <h2>Your data</h2>
+    <p class="muted">Progress is saved on this device. Export a backup before changing phones or clearing browser data.</p>
+    <div class="row">
+      <button class="secondary" onclick="exportData()">Export backup</button>
+      <button class="secondary" onclick="document.getElementById('importFile').click()">Import backup</button>
+      <input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)">
+    </div>
+    <br>
+    <button class="danger" onclick="resetData()">Reset all Fit 16.5 data</button>
+  </div>
+</section>
+
+<section id="plan" class="hidden">
+  <div class="card">
+    <h2>Strength A — Monday</h2>
+    <p>Band squat — 3 × 10–15</p>
+    <p>Band Romanian deadlift — 3 × 10–15</p>
+    <p>Band bent-over row — 3 × 10–15</p>
+    <p>Band shoulder press — 3 × 8–12</p>
+    <p>Band curl — 2 × 10–15</p>
+    <p>Dead bug — 2 × 8–10 each side</p>
+  </div>
+  <div class="card">
+    <h2>Strength B — Thursday</h2>
+    <p>Reverse lunge — 3 × 8–12 each leg</p>
+    <p>Band sumo squat — 3 × 10–15</p>
+    <p>Band bent-over row — 3 × 10–15</p>
+    <p>Band floor press / push-ups — 3 × 8–15</p>
+    <p>Band lateral raise — 2 × 10–15</p>
+    <p>Plank — 2 × 20–40 sec</p>
+  </div>
+  <div class="card">
+    <h2>Intermittent Fasting & Nutrition</h2>
+    <p><b>Eating window: 12:00 PM – 7:00 PM (17:7 Fast)</b></p>
+    <p>Fasting outside these hours (water, black coffee, unsweetened tea). Prioritise protein, fruit/veg and sensible portions. Zero-sugar Monster fits comfortably in the plan.</p>
+  </div>
+</section>
+</main>
+<div id="toast" class="toast"></div>
+
 <script>
-const KEY='fit16';const DEFAULT={m:[],s:[],r:[]};let d=load();let currentWorkout='A';let deferredPrompt=null;
+const KEY='fit16';
+const DEFAULT={m:[],s:[],r:[]};
+let d=load();
+let currentWorkout='A';
+let deferredPrompt=null;
+
+// Target: 16 stone 7 lbs = 231 lbs = 104.7798 kg
+const TARGET_KG = (16 * 14 + 7) / 2.20462262;
+const START_KG = (19 * 14 + 8) / 2.20462262;
+
 const A=['Band squat — 3 × 10–15','Band Romanian deadlift — 3 × 10–15','Band bent-over row — 3 × 10–15','Band shoulder press — 3 × 8–12','Band curl — 2 × 10–15','Dead bug — 2 × 8–10 each side'];
 const B=['Reverse lunge — 3 × 8–12 each leg','Band sumo squat — 3 × 10–15','Band bent-over row — 3 × 10–15','Band floor press / push-ups — 3 × 8–15','Band lateral raise — 2 × 10–15','Plank — 2 × 20–40 sec'];
-function load(){try{return {...DEFAULT,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...DEFAULT}}}function save(){localStorage.setItem(KEY,JSON.stringify(d))}function date(){return new Date().toISOString().slice(0,10)}function week(){let x=new Date(),day=x.getDay(),diff=(day+6)%7;x.setDate(x.getDate()-diff);return x.toISOString().slice(0,10)}function todayName(){return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()]}
-function show(id){['home','work','prog','plan'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));['home','work','prog','plan'].forEach(x=>document.getElementById('b'+x).classList.toggle('active',x===id));if(id==='prog')history();if(id==='home')home();if(id==='work')autoWorkout();}
-function autoWorkout(){let day=new Date().getDay();if(day===1)selectWorkout('A');else if(day===4)selectWorkout('B');else if(day===3||day===0)selectWorkout('R');else selectWorkout('A')}
-function selectWorkout(x){currentWorkout=x;let strength=x!=='R';document.getElementById('strengthCard').classList.toggle('hidden',!strength);document.getElementById('runCard').classList.toggle('hidden',strength);if(strength){document.getElementById('title').textContent=x==='A'?'Strength A':'Strength B';renderExercises(x==='A'?A:B)}}
-function renderExercises(arr){document.getElementById('ex').innerHTML=arr.map(x=>'<div class="exercise"><input type="checkbox"><span>'+x+'</span></div>').join('')}
+
+function load(){try{return {...DEFAULT,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...DEFAULT}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(d))}
+function date(){return new Date().toISOString().slice(0,10)}
+function week(){let x=new Date(),day=x.getDay(),diff=(day+6)%7;x.setDate(x.getDate()-diff);return x.toISOString().slice(0,10)}
+function todayName(){return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()]}
+
+function show(id){
+  ['home','work','prog','plan'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));
+  ['home','work','prog','plan'].forEach(x=>document.getElementById('b'+x).classList.toggle('active',x===id));
+  if(id==='prog')history();
+  if(id==='home'){home();updateFasting();}
+  if(id==='work')autoWorkout();
+}
+
+function autoWorkout(){
+  let day=new Date().getDay();
+  if(day===1)selectWorkout('A');
+  else if(day===4)selectWorkout('B');
+  else if(day===3||day===0)selectWorkout('R');
+  else selectWorkout('A')
+}
+
+function selectWorkout(x){
+  currentWorkout=x;
+  let strength=x!=='R';
+  document.getElementById('strengthCard').classList.toggle('hidden',!strength);
+  document.getElementById('runCard').classList.toggle('hidden',strength);
+  if(strength){
+    document.getElementById('title').textContent=x==='A'?'Strength A':'Strength B';
+    renderExercises(x==='A'?A:B)
+  }
+}
+
+function renderExercises(arr){
+  document.getElementById('ex').innerHTML=arr.map(x=>'<div class="exercise"><input type="checkbox"><span>'+x+'</span></div>').join('')
+}
+
 function logSession(type){d.s.push({date:date(),type});save();home();toast('Session saved ✓')}
-function completeStrength(){let checks=[...document.querySelectorAll('#ex input[type=checkbox]')];if(!checks.every(x=>x.checked)){if(!confirm('Not all exercises are ticked. Save the session anyway?'))return}logSession(currentWorkout)}
-function saveRun(){d.r.push({date:date(),walk:+wm.value||0,run:+rm.value||0,km:+km.value||0});logSession('R');wm.value=rm.value=km.value=''}
-function saveMeasure(){let st=+document.getElementById('st').value,lb=+document.getElementById('lb').value||0;if(!st){toast('Enter your stone weight first');return}d.m.push({date:date(),kg:(st*14+lb)/2.20462262,waist:+waist.value||null});save();history();home();toast('Measurement saved ✓')}
-function fmt(kg){let x=kg*2.20462262,st=Math.floor(x/14),lb=Math.round(x-st*14);if(lb===14){st++;lb=0}return st+' st '+lb+' lb'}
-function home(){let kg=d.m.length?d.m[d.m.length-1].kg:19.5*6.35029318,start=19.5*6.35029318,target=16.5*6.35029318;weight.textContent=fmt(kg);lost.textContent=Math.max(0,Math.round((start-kg)*2.20462262))+' lb';let count=d.s.filter(x=>(typeof x==='string'?x:x.date)>=week()).length;sessions.textContent=count+' / 4';let pct=Math.max(0,Math.min(100,(start-kg)/(start-target)*100));bar.style.width=pct+'%';progressText.textContent=Math.round(pct)+'% of the way from 19 st 8 lb to 16 st 7 lb';let day=new Date().getDay();let label=day===1?'Strength A':day===4?'Strength B':(day===3||day===0)?'Walk / Run':'Recovery day';let done=d.s.some(x=>(typeof x==='string'?x:x.date)===date());today.innerHTML='<span class="pill">'+todayName()+'</span> <span class="pill '+(done?'done':'')+'">'+label+(done?' ✓':'')+'</span><p class="muted">'+(done?'Today is logged. Keep the momentum going.':'Open Workout to log today’s session.')+'</p>'}
-function history(){hist.innerHTML=d.m.length?'<table><tr><th>Date</th><th>Weight</th><th>Waist</th></tr>'+d.m.slice().reverse().map(x=>'<tr><td>'+x.date+'</td><td>'+fmt(x.kg)+'</td><td>'+(x.waist||'—')+'</td></tr>').join('')+'</table>':'<p class="muted">No measurements yet.</p>'}
-function exportData(){let blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fit16-backup-'+date()+'.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported ✓')}
-function importData(e){let file=e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.m)||!Array.isArray(x.s)||!Array.isArray(x.r))throw 0;d=x;save();home();history();toast('Backup imported ✓')}catch(_){toast('That backup file is not valid Fit 16 data.')}};r.readAsText(file);e.target.value=''}
-function resetData(){if(confirm('Delete all Fit 16 progress from this device? Export a backup first if you want to keep it.')){d={...DEFAULT};save();home();history();toast('Fit 16 data reset')}}
-function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',2200)}
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.style.display='inline-block'});installBtn.addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.style.display='none'});window.addEventListener('appinstalled',()=>{installBtn.style.display='none';toast('Fit 16 installed ✓')});
-renderExercises(A);home();show('home');if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js'));
+
+function completeStrength(){
+  let checks=[...document.querySelectorAll('#ex input[type=checkbox]')];
+  if(!checks.every(x=>x.checked)){
+    if(!confirm('Not all exercises are ticked. Save the session anyway?'))return
+  }
+  logSession(currentWorkout)
+}
+
+function saveRun(){
+  d.r.push({date:date(),walk:+wm.value||0,run:+rm.value||0,km:+km.value||0});
+  logSession('R');
+  wm.value=rm.value=km.value=''
+}
+
+function saveMeasure(){
+  let st=+document.getElementById('st').value,lb=+document.getElementById('lb').value||0;
+  if(!st){toast('Enter your stone weight first');return}
+  d.m.push({date:date(),kg:(st*14+lb)/2.20462262,waist:+waist.value||null});
+  save();history();home();
+  toast('Measurement saved ✓')
+}
+
+function fmt(kg){
+  let x=kg*2.20462262,st=Math.floor(x/14),lb=Math.round(x-st*14);
+  if(lb===14){st++;lb=0}
+  return st+' st '+lb+' lb'
+}
+
+function updateFasting(){
+  const now = new Date();
+  const hrs = now.getHours();
+  const mins = now.getMinutes();
+  const curMins = hrs * 60 + mins;
+  const startMins = 12 * 60; // 12:00 PM
+  const endMins = 19 * 60;   // 7:00 PM
+
+  const container = document.getElementById('fastingStatus');
+  if(!container) return;
+
+  if(curMins >= startMins && curMins < endMins){
+    let left = endMins - curMins;
+    let h = Math.floor(left / 60);
+    let m = left % 60;
+    container.innerHTML = '<span class="pill done">Eating Window Open</span> <span class="muted">' + h + 'h ' + m + 'm remaining</span><p class="muted">Window closes promptly at 7:00 PM.</p>';
+  } else {
+    let untilStart = curMins < startMins ? (startMins - curMins) : ((24 * 60 - curMins) + startMins);
+    let h = Math.floor(untilStart / 60);
+    let m = untilStart % 60;
+    container.innerHTML = '<span class="pill fasting">Fast Active</span> <span class="muted">' + h + 'h ' + m + 'm until window opens</span><p class="muted">Window opens at 12:00 PM. Stick to water, black coffee, or tea.</p>';
+  }
+}
+
+function home(){
+  let kg = d.m.length ? d.m[d.m.length-1].kg : START_KG;
+  weight.textContent = fmt(kg);
+  lost.textContent = Math.max(0, Math.round((START_KG - kg) * 2.20462262)) + ' lb';
+  let count = d.s.filter(x => (typeof x==='string' ? x : x.date) >= week()).length;
+  sessions.textContent = count + ' / 4';
+
+  let totalToLose = START_KG - TARGET_KG;
+  let currentLost = START_KG - kg;
+  let pct = Math.max(0, Math.min(100, (currentLost / totalToLose) * 100));
+
+  bar.style.width = pct + '%';
+  progressText.textContent = Math.round(pct) + '% of the way from 19 st 8 lb to 16 st 7 lb';
+
+  let day = new Date().getDay();
+  let label = day===1 ? 'Strength A' : day===4 ? 'Strength B' : (day===3||day===0) ? 'Walk / Run' : 'Recovery day';
+  let done = d.s.some(x => (typeof x==='string' ? x : x.date) === date());
+
+  today.innerHTML = '<span class="pill">' + todayName() + '</span> <span class="pill ' + (done ? 'done' : '') + '">' + label + (done ? ' ✓' : '') + '</span><p class="muted">' + (done ? 'Today is logged. Keep the momentum going.' : 'Open Workout to log today’s session.') + '</p>';
+  updateFasting();
+}
+
+function history(){
+  hist.innerHTML = d.m.length ? '<table><tr><th>Date</th><th>Weight</th><th>Waist</th></tr>' + d.m.slice().reverse().map(x => '<tr><td>' + x.date + '</td><td>' + fmt(x.kg) + '</td><td>' + (x.waist || '—') + '</td></tr>').join('') + '</table>' : '<p class="muted">No measurements yet.</p>';
+}
+
+function exportData(){
+  let blob = new Blob([JSON.stringify(d, null, 2)], {type:'application/json'}), a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fit16-backup-' + date() + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('Backup exported ✓');
+}
+
+function importData(e){
+  let file = e.target.files[0];
+  if(!file) return;
+  let r = new FileReader();
+  r.onload = () => {
+    try {
+      let x = JSON.parse(r.result);
+      if(!Array.isArray(x.m) || !Array.isArray(x.s) || !Array.isArray(x.r)) throw 0;
+      d = x;
+      save(); home(); history();
+      toast('Backup imported ✓');
+    } catch(_) {
+      toast('That backup file is not valid Fit 16 data.');
+    }
+  };
+  r.readAsText(file);
+  e.target.value = '';
+}
+
+function resetData(){
+  if(confirm('Delete all Fit 16.5 progress from this device? Export a backup first if you want to keep it.')){
+    d = {...DEFAULT};
+    save(); home(); history();
+    toast('Fit 16.5 data reset');
+  }
+}
+
+function toast(msg){
+  let t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  clearTimeout(window.tt);
+  window.tt = setTimeout(() => t.style.display = 'none', 2200);
+}
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'inline-block';
+});
+
+installBtn.addEventListener('click', async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.style.display = 'none';
+});
+
+window.addEventListener('appinstalled', () => {
+  installBtn.style.display = 'none';
+  toast('Fit 16.5 installed ✓');
+});
+
+renderExercises(A);
+home();
+show('home');
+setInterval(updateFasting, 60000);
+
+if('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
+}
 </script></body></html>
